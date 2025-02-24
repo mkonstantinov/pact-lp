@@ -1,0 +1,159 @@
+@use '../general/variables' as *;
+@use '../general/mixins' as *;
+
+.hero-slider {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  min-height: 600px;
+  overflow: hidden;
+  background-color: $colour-cream;
+
+  @include xl {
+      min-height: 750px;
+  }
+
+  @include mobile {
+    height: 100vh;
+  }
+
+  .slider-container {
+    height: 100%;
+    width: 100%;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    opacity: 0;
+    transition: opacity $transition-default;
+    visibility: hidden;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    @include mobile {
+      position: absolute;
+      flex-direction: column-reverse;
+      height: 100%;
+    }
+  }
+
+  .slide-content {
+     width: 50%;
+     @include section-padding;
+     position: relative;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     background-color: $colour-cream;
+     padding-bottom: 6rem;
+
+      @include tablet {
+        padding: 6% 6%;
+      }
+
+      @include mobile {
+        width: 100%;
+        padding: 2rem 1.5rem;
+        height: 50%;
+      }
+
+      h1 {
+        font-size: $text-h1;
+        font-family: $font-primary;
+        font-weight: 700;
+        line-height: 1.1;
+        color: $colour-dark;
+        margin-bottom: 1.5rem;
+        text-align: center;
+
+        @include tablet {
+          font-size: 3.5rem;
+        }
+
+        @include mobile {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+        }
+    }
+
+    p {
+      font-size: 1.1rem;
+      font-family: $font-primary;
+      font-weight: $weight-th;
+      line-height: 1.5;
+      color: $colour-dark;
+      margin-bottom: 2rem;
+      max-width: 480px;
+      text-align: center;
+      padding: 0 3rem;
+
+      @include mobile {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    .cta-button {
+      @include mobile {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+
+  .slide-image {
+    width: 50%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @include mobile {
+      width: 100%;
+      height: 50%;
+    }
+  }
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 2rem;
+    left: 25%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+
+  @include mobile {
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid $colour-dark;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    padding: 0;
+
+    &.active {
+      background-color: $colour-dark;
+    }
+  }
+}

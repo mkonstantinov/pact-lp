@@ -1,0 +1,19 @@
+@use '../general/variables' as *;
+@use '../general/mixins' as *;
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: $colour-button;
+  color: $colour-dark;
+  text-decoration: none;
+  border-radius: $border-radius-button;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  width: fit-content;
+
+  &:hover {
+    background-color: $colour-dark;
+    color: $colour-white;
+  }
+}

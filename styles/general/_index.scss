@@ -1,0 +1,16 @@
+@forward 'variables';
+@forward 'mixins';
+
+body {
+  background-color: $colour-cream;
+}
+
+.container, .main-nav {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 2rem;
+
+    @include xl {
+        max-width: $container-xl;
+    }
+}
